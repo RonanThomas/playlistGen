@@ -4,15 +4,20 @@
 import argparse
 import logging
 
-def checkArgs(arg):
+def checkArgs(listeArguments, nomAttribut):
+    global args
     try:
-        int(arg[1])
-        if int(arg[1]) > 0 and int(arg[1]) <= 100:
-            return int(arg[1])
-        else:
-            logging.error(arg[1] +  "n'est pas compris entre 0 et 100 !")
+        i = 0
+        for sous_liste in listeArguments:
+            sous_liste[1] = int(sous_liste[1])
+            if 0 < sous_liste[1] <= 100:
+                listeArguments[i] = sous_liste
+                setattr(args, nomAttribut, listeArguments)
+                i += 1
+            else:
+                logging.error(str(sous_liste[1]) +  "n'est pas compris entre 0 et 100 !")
     except ValueError:
-        logging.error(arg[1] + "n'est pas convertible en entier")
+        logging.error(str(sous_liste[1]) + "n'est pas convertible en entier")
                 
 parser = argparse.ArgumentParser()
 
@@ -29,11 +34,6 @@ parser.add_argument("-A", "--album", action='append', nargs=2, help="")
 parser.add_argument("-t", "--titre", action='append', nargs=2, help="")
 args = parser.parse_args()
 
-if args.genre:
-    for arg in args.genre:
-        checkArgs(arg)
-        print(args.genre)
-if args.artiste:
-    for arg in args.artiste:
-        checkArgs(args.artiste)
-        print(args.genre)
+for attribut in ['genre','sousgenre','artiste','album','titre']:
+    if getattr(args, attribut) is not None:
+        checkArgs(getattr(args, attribut), attribut)
