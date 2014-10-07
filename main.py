@@ -3,6 +3,7 @@
 
 import argparse
 import logging
+import time
 
 """Vérification du pourcentage des arguments"""
 def checkArgs(listeArguments, nomAttribut):
@@ -33,6 +34,7 @@ parser = argparse.ArgumentParser()
 
 """Déclaration du fichier de logs"""
 logging.basicConfig(filename="info.log", level=logging.DEBUG)
+logging.info("***** " + time.strftime('%d/%m/%y %H:%M:%S', time.localtime()) + " *****")
 
 """Déclaration des arguments positionnels"""
 parser.add_argument("duree_playlist", type=int, help="Durée totale de la playist en minutes")
@@ -53,6 +55,9 @@ for attribut in ['genre','sousgenre','artiste','album','titre']:
         
 """Vérification de la somme des pourcentage"""
 if 0 < getSommePourcent() <= 100:
-    
+    for attribut in ['genre','sousgenre','artiste','album','titre']:
+        if getattr(args, attribut) is not None:
+            for argument in getattr(args, attribut):
+                logging.info("Argument -" + attribut + " :\t" + argument[0] + " ; " + str(argument[1]))
 else:
-    logging.error("Le pourcentage est supérieur à 100")
+    logging.error("Le pourcentage est supérieur à 100%")
