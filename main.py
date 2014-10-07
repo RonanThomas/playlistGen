@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import argparse
+import logging
 
 def checkArgs(arg):
     try:
@@ -9,11 +10,15 @@ def checkArgs(arg):
         if int(arg[1]) > 0 and int(arg[1]) <= 100:
             return int(arg[1])
         else:
-            print("! Erreur ! -> '"+ arg[1] +"' n'est pas une valeur correcte")
+            logging.error(arg[1] +  "n'est pas compris entre 0 et 100 !")
     except ValueError:
-        print("! Erreur ! -> '"+ arg[1] +"' n'est pas une valeur correcte")
+        logging.error(arg[1] + "n'est pas convertible en entier")
                 
 parser = argparse.ArgumentParser()
+
+logging.basicConfig(filename="info.log", level=logging.DEBUG)
+
+
 parser.add_argument("duree_playlist", type=int, help="Durée totale de la playist en minutes")
 parser.add_argument("nom_playlist", help="Nom de sortie de la playist")
 parser.add_argument("type_playlist", help="Format de la playist", choices=['m3u', 'xspf', 'pls'])
