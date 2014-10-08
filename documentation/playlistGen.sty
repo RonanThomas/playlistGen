@@ -1,10 +1,8 @@
 \ProvidesPackage{playlistGen}
 
-						%%%%%%%%%%%%%%%%%%%%%
-						%%%%%%%%%%%%%%%%%%%%%
-						%%% Custom layout %%%
-						%%%%%%%%%%%%%%%%%%%%%
-						%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[french]{babel}
 \usepackage[utf8]{inputenc}
@@ -37,30 +35,26 @@
 	pdfstartview=FitH%
 ]{hyperref}
 
-
-%%%%%%%%%%%%%%%%%%%
-% Personal colors %
-%%%%%%%%%%%%%%%%%%%
+% Personal colors
 \definecolor{DarkGreen}{rgb}{0,0.75,0}%
 \definecolor{DarkRed}{rgb}{0.5,0,0}%
 \definecolor{DarkBlue}{rgb}{0,0,0.75}%
 
-						%%%%%%%%%%%%%%%%%%%%%%%
-						%%%%%%%%%%%%%%%%%%%%%%%
-						%%% Custom commands %%%
-						%%%%%%%%%%%%%%%%%%%%%%%
-						%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%																		%
-% Define macro to easily include image without caption					%
-% Usage:																%
-%	\imageWOCaption{file.png}{width=13cm}{fig:ReferenceLabel}			%
-%																		%
-% After what you can reference the image by:							%
-%	\ref{fig:ReferenceLabel}											%
-%																		%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Define macro to easily include image without caption
+% Usage:
+%	\imageWOCaption{file.png}{width=13cm}{fig:ReferenceLabel}
+%
+% After what you can reference the image by:
+%	\ref{fig:ReferenceLabel}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\imageWOCaption}[4][\linewidth]{%
 % #1 = minipage width
 % #2 = file path
@@ -76,17 +70,17 @@
     \end{figure}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%																		%
-% Define macro to easily include image w/wo box around					%
-% Usage:																%
-%	\image{file.png}{width=13cm}{Caption}{fig:ReferenceLabel}			%
-%	\imageBoxed{file.png}{width=13cm}{Caption}{fig:ReferenceLabel}		%
-%																		%
-% After what you can reference the image by:							%
-%	\ref{fig:ReferenceLabel}											%
-%																		%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Define macro to easily include image w/wo box around
+% Usage:
+%	\image{file.png}{width=13cm}{Caption}{fig:ReferenceLabel}
+%	\imageBoxed{file.png}{width=13cm}{Caption}{fig:ReferenceLabel}
+%
+% After what you can reference the image by:
+%	\ref{fig:ReferenceLabel}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\image}[5][\linewidth]{%
 % #1 = minipage width
 % #2 = file path
@@ -124,16 +118,16 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%																				%
-% Define macro to easily include source code									%
-% Usage:																		%
-%	\begin{lstlisting}[language=C++, caption={Caption}, label={ReferenceLabel}]	%
-%		** Source code **														%
-%	\end{lstlisting}															%
-%																				%
-% After what you can reference the image by:									%
-%	\lstlistingname{} \vref{ReferenceLabel}										%
-%																				%
+%
+% Define macro to easily include source code
+% Usage:
+%	\begin{lstlisting}[language=C++, caption={Caption}, label={ReferenceLabel}]
+%		** Source code **
+%	\end{lstlisting}
+%
+% After what you can reference the image by:
+%	\lstlistingname{} \vref{ReferenceLabel}
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstset{%
 	basicstyle=\scriptsize\ttfamily,%
@@ -152,19 +146,19 @@
 }
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%																	%
-% Define macro to easily include numbered tabular					%
-% Usage:															%
-%	\tableau{|l|p{4cm}|c|}{\linewidth}{Caption}{tab:Label}{			%
-%	\hline															%
-%	A & B & C \\ \hline												%
-%	}																%
-%																	%
-% After what you can reference the tabular by:						%
-%	\ref{tab:Label}													%
-%																	%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Define macro to easily include numbered tabular
+% Usage:
+%	\tableau{|l|p{4cm}|c|}{\linewidth}{Caption}{tab:Label}{
+%	\hline
+%	A & B & C \\ \hline
+%	}
+%
+% After what you can reference the tabular by:
+%	\ref{tab:Label}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\tableau}[5]{
 % #1 = structure string
 % #2 = width
@@ -180,15 +174,15 @@
 	\end{table}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%												%
-% Define macro to easily include paragraph		%
-% Usage:										%
-%	\paragraphe{TitreDuParagraphe}{				%
-%	ContenuDuParagraphe							%
-%	}											%
-%												%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Define macro to easily include paragraph
+% Usage:
+%	\paragraphe{TitreDuParagraphe}{
+%	ContenuDuParagraphe
+%	}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\paragraphe}[2]{
 % #1 = titre
 % #2 = contenu
@@ -200,15 +194,15 @@
 \end{flushright}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%															%
-% Define macro to easily include subparagraph				%
-% Usage:													%
-%	\subparagraphe{TitreDuSousParagraphe}{					%
-%	ContenuDuSousParagraphe									%
-%	}														%
-%															%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Define macro to easily include subparagraph
+% Usage:
+%	\subparagraphe{TitreDuSousParagraphe}{
+%	ContenuDuSousParagraphe
+%	}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\subparagraphe}[2]{
 % #1 = titre
 % #2 = contenu
@@ -220,15 +214,15 @@
 \end{flushright}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%													%
-% Define macro to easily include text area			%
-% Usage:											%
-%	\textarea{TitreDeLaZoneDeTexte}{				%
-%	ContenuDeLaZoneDeTexte							%
-%	}												%
-%													%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Define macro to easily include text area
+% Usage:
+%	\textarea{TitreDeLaZoneDeTexte}{
+%	ContenuDeLaZoneDeTexte
+%	}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\textarea}[3]{
 % #1 = largeur
 % #2 = titre
@@ -241,4 +235,4 @@
 \end{flushright}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
