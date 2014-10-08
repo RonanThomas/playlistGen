@@ -1,6 +1,6 @@
 #Import module Python
 import sqlalchemy
-from identifiant import loginBDD, passwordBDD, ipBDD, portBDD
+from accessBDD import loginBDD, passwordBDD, ipBDD, portBDD
 
 #Connexion a la BDD
 connexion = sqlalchemy.create_engine("postgresql://"+ loginBDD +":"+ passwordBDD +"@"+ ipBDD +":"+ portBDD +"/radio_libre")
