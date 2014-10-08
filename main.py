@@ -29,6 +29,12 @@ def getSommePourcent():
             for pourcentage in getattr(args, attribut):
                 somme_pourcent += pourcentage[1]
     return somme_pourcent
+
+def convertToMinute():
+    for attribut in ['genre','sousgenre','artiste','album','titre']:
+        if getattr(args, attribut) is not None:
+            for argument in getattr(args, attribut):
+                argument[1] = int(args.duree_playlist*argument[1]/100)
                 
 parser = argparse.ArgumentParser()
 
@@ -47,6 +53,7 @@ parser.add_argument("-G", "--sousgenre", action='append', nargs=2, help="")
 parser.add_argument("-a", "--artiste", action='append', nargs=2, help="")
 parser.add_argument("-A", "--album", action='append', nargs=2, help="")
 parser.add_argument("-t", "--titre", action='append', nargs=2, help="")
+
 args = parser.parse_args()
 
 for attribut in ['genre','sousgenre','artiste','album','titre']:
@@ -55,9 +62,10 @@ for attribut in ['genre','sousgenre','artiste','album','titre']:
         
 """Vérification de la somme des pourcentage"""
 if 0 < getSommePourcent() <= 100:
+    convertToMinute()
     for attribut in ['genre','sousgenre','artiste','album','titre']:
         if getattr(args, attribut) is not None:
             for argument in getattr(args, attribut):
-                logging.info("Argument -" + attribut + " :\t" + argument[0] + " ; " + str(argument[1]))
+                logging.info(attribut + "\t" + argument[0] + ", " + str(argument[1]) + " minutes")
 else:
     logging.error("Le pourcentage est supérieur à 100%")
