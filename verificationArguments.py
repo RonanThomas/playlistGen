@@ -4,7 +4,6 @@ import calcul
 
 """Vérification du pourcentage des arguments"""
 def checkArgs(listeArgumentsCLI, listeArguments, nomAttribut):
-    global args
     try:
         i = 0
         for sublisteArguments in listeArguments:
