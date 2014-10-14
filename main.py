@@ -8,6 +8,7 @@ import time
 #Import modules projet
 import verificationArguments
 import definitionCLI
+from globalConfig import ARGUMENTS_CLI
 
 #Déclaration du fichier de logs
 logging.basicConfig(filename="info.log", level=logging.DEBUG)
@@ -18,6 +19,7 @@ definitionCLI.defArgumentsOptionnels()
 
 listeArgumentsCLI = definitionCLI.argsParser.parse_args()
 
-for attribut in ['genre','sousgenre','artiste','album','titre']:
+for attribut in ARGUMENTS_CLI:
     if getattr(listeArgumentsCLI, attribut) is not None:
-        verificationArguments.checkArgs(getattr(listeArgumentsCLI, attribut), attribut)
+        verificationArguments.checkArgs(listeArgumentsCLI, getattr(listeArgumentsCLI, attribut), attribut)
+        verificationArguments.checkSum(listeArgumentsCLI)
