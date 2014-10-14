@@ -1,18 +1,18 @@
 #Import modules projet
-import main
+from globalConfig import ARGUMENTS_CLI
 
-#Calcul de la somme des pourcentage pour tous les arguments
-def getSommePourcent():
+"""Calcul de la somme des pourcentage pour tous les arguments"""
+def getSommePourcent(listeArgumentsCLI):
     somme_pourcent = 0
-    for attribut in ['genre','sousgenre','artiste','album','titre']:
-        if getattr(main.listeArgumentsCLI, attribut) is not None:
-            for pourcentage in getattr(main.listeArgumentsCLI, attribut):
+    for attribut in ARGUMENTS_CLI:
+        if getattr(listeArgumentsCLI, attribut) is not None:
+            for pourcentage in getattr(listeArgumentsCLI, attribut):
                 somme_pourcent += pourcentage[1]
     return somme_pourcent
 
-#Conversion des pourcentages en minutes
-def convertToMinute():
-    for attribut in ['genre','sousgenre','artiste','album','titre']:
-        if getattr(main.listeArgumentsCLI, attribut) is not None:
-            for argument in getattr(main.listeArgumentsCLI, attribut):
-                argument[1] = int(main.listeArgumentsCLI.duree_playlist*argument[1]/100)
+"""Conversion des pourcentages en minutes"""
+def convertToMinute(listeArgumentsCLI):
+    for attribut in ARGUMENTS_CLI:
+        if getattr(listeArgumentsCLI, attribut) is not None:
+            for argument in getattr(listeArgumentsCLI, attribut):
+                argument[1] = int(listeArgumentsCLI.duree_playlist*argument[1]/100)

@@ -1,5 +1,8 @@
-.log
-accessBDD.py
+info.log
+globalConfig.py
+
 .project
 .pydevproject
 .settings/
+
+*pycache*

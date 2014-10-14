@@ -1,9 +1,9 @@
 #Import modules Python
 import sqlalchemy
-from accessBDD import loginBDD, passwordBDD, ipBDD, portBDD
+from globalConfig import LOGIN_BDD, PASS_BDD, IP_BDD, PORT_BDD
 
 #Connexion BDD
-connexionPG = sqlalchemy.create_engine("postgresql://"+ loginBDD +":"+ passwordBDD +"@"+ ipBDD +":"+ portBDD +"/radio_libre")
+connexionPG = sqlalchemy.create_engine("postgresql://"+ LOGIN_BDD +":"+ PASS_BDD +"@"+ IP_BDD +":"+ PORT_BDD +"/radio_libre")
 metadata = sqlalchemy.MetaData()
 
 #Construction de la table morceaux
