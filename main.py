@@ -9,6 +9,8 @@ import time
 import verificationArguments
 import definitionCLI
 from globalConfig import ARGUMENTS_CLI
+import connexion
+import sqlalchemy
 
 #Déclaration du fichier de logs
 logging.basicConfig(filename="info.log", level=logging.DEBUG)
