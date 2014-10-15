@@ -2,11 +2,11 @@ from globalConfig import ARGUMENTS_CLI
 import os
 
 def writeM3U(listeArgumentsCLI, playlist):
-    playlistFile = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist
-    file = open(playlistFile,'w')
+    playlistFileName = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist
+    playlistFile = open(playlistFileName, 'w')
     for musique in playlist:
-        file.write(musique[2] + "\n")
-    file.close()
+        playlistFile.write(musique[2] + "\n")
+    playlistFile.close()
     
 
 def writeXSPF(listeArgumentsCLI, playlist):
