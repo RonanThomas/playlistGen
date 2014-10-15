@@ -43,3 +43,4 @@ def defArgumentsOptionnels():
     argsParser.add_argument("-a", "--artiste", action=appendCheckArgs, nargs=2, help="")
     argsParser.add_argument("-A", "--album", action=appendCheckArgs, nargs=2, help="")
     argsParser.add_argument("-t", "--titre", action=appendCheckArgs, nargs=2, help="")
+    
