@@ -5,12 +5,12 @@ def writeM3U(listeArgumentsCLI, playlist):
     playlistFile = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist
     file = open(playlistFile,'w')
     for musique in playlist:
-        file.write("Titre : "+ musique[0] +"\nDurée :"+ str(musique[1]) +"\nChemin :"+ musique[2])
+        file.write(musique[2])
     file.close()
     
 
-#def writeXSPF(listeArgumentsCLI):
+#def writeXSPF(listeArgumentsCLI, playlist):
     
 
-#def writePLS(listeArgumentsCLI):
+#def writePLS(listeArgumentsCLI, playlist):
     

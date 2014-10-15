@@ -67,23 +67,9 @@ for attribut in ARGUMENTS_CLI:
                 i += 1
 random.shuffle(playlist)
             
-writeM3U(listeArgumentsCLI, playlist)
-
-
-def Redbold(output):
-    os.system("tput bold")
-    os.system("tput setaf 1")
-    print(output)
-    os.system("tput sgr 0")
-    
-def Bold(output):
-    os.system("tput bold")
-    print(output)
-    os.system("tput sgr 0")
-    
-#for i in resultat:
-#    Redbold("*****************************************************************")
-#    Bold("Titre: " + i['titre'])
-#    Bold("Genre: " + i['genre'])
-#    Bold("Duree: " + str(i['duree']))
-#    Bold("Chemin: " + i['chemin'])
+if(listeArgumentsCLI.type_playlist == 'm3u'):
+    writeM3U(listeArgumentsCLI, playliif)
+if(listeArgumentsCLI.type_playlist == 'xspf'):
+    writeXSPF(listeArgumentsCLI, playlist)
+if(listeArgumentsCLI.type_playlist == 'pls'):
+    writePLS(listeArgumentsCLI, playlist)
