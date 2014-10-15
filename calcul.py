@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #Import modules projet
 from globalConfig import ARGUMENTS_CLI
 

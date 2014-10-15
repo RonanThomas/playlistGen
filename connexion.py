@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #Import modules Python
 import sqlalchemy
 from globalConfig import LOGIN_BDD, PASS_BDD, IP_BDD, PORT_BDD
@@ -17,6 +19,3 @@ tableMorceaux = sqlalchemy.Table('morceaux', metadata,
                                  sqlalchemy.Column('format', sqlalchemy.String),
                                  sqlalchemy.Column('polyphonie', sqlalchemy.Integer),
                                  sqlalchemy.Column('chemin', sqlalchemy.String))
-
-#CHEMIN, TITRE, DUREE -> PLS
-#CHEMIN -> XSPF / M3U
