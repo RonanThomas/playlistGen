@@ -4,7 +4,6 @@
 #Import modules python
 import logging
 import time
-import os
 import sqlalchemy
 import random
 
@@ -12,8 +11,8 @@ import random
 import verificationArguments
 import definitionCLI
 from globalConfig import ARGUMENTS_CLI
-from connexion import connexionPG, metadata, tableMorceaux
-from writeFile import writeM3U
+from connexion import connexionPG, tableMorceaux
+from writeFile import writeM3U, writeXSPF, writePLS
 
 #Déclaration du fichier de logs
 logging.basicConfig(filename="info.log", level=logging.DEBUG)
@@ -68,7 +67,7 @@ for attribut in ARGUMENTS_CLI:
 random.shuffle(playlist)
             
 if(listeArgumentsCLI.type_playlist == 'm3u'):
-    writeM3U(listeArgumentsCLI, playliif)
+    writeM3U(listeArgumentsCLI, playlist)
 if(listeArgumentsCLI.type_playlist == 'xspf'):
     writeXSPF(listeArgumentsCLI, playlist)
 if(listeArgumentsCLI.type_playlist == 'pls'):

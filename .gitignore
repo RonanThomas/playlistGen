@@ -1,6 +1,10 @@
 info.log
 globalConfig.py
 
+*.m3u
+*.xspf
+*.pls
+
 .project
 .pydevproject
 .settings/
