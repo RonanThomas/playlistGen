@@ -33,7 +33,7 @@ def writePLS(listeArgumentsCLI, playlist):
     playlistFile = open(playlistFileName, 'w')
     playlistFile.write("[playlist]\n")
     for musique in playlist:
-        playlistFile.write("File"+ i +"="+ musique[4] +"\nTitle" + i +"="+ musique[0] +"\nLength"+ i +"="+ musique[3])
+        playlistFile.write("File"+ str(i) +"="+ musique[4] +"\nTitle" + str(i) +"="+ musique[0] +"\nLength"+ str(i) +"="+ str(musique[3]))
         i+=1
-    playlistFile.write("NumberOfEntries="+ playlist.size() +"\nVersion=2")
+    playlistFile.write("NumberOfEntries="+ str(len(playlist)) +"\nVersion=2")
     playlistFile.close()
