@@ -5,7 +5,7 @@ import argparse
 import logging
 import sys
 
-"""Classe de vérification des arguments"""
+'''Classe de vérification des arguments'''
 class appendCheckArgs(argparse.Action):
     def __init__(self, option_strings, dest, nargs=None, **kwargs):
         if nargs == 2:
@@ -30,13 +30,13 @@ class appendCheckArgs(argparse.Action):
 
 argsParser = argparse.ArgumentParser()
 
-""""Déclaration des arguments positionnels"""
+'''"Déclaration des arguments positionnels'''
 def defArgumentsPositionnels():
     argsParser.add_argument("duree_playlist", type=int, help="Durée totale de la playist en minutes")
     argsParser.add_argument("nom_playlist", help="Nom de sortie de la playist")
     argsParser.add_argument("type_playlist", help="Format de la playist", choices=['m3u', 'xspf', 'pls'])
 
-"""Déclaration des arguments optionnels"""
+'''Déclaration des arguments optionnels'''
 def defArgumentsOptionnels():
     argsParser.add_argument("-g", "--genre", action=appendCheckArgs, nargs=2, help="")
     argsParser.add_argument("-G", "--sousgenre", action=appendCheckArgs, nargs=2, help="")
