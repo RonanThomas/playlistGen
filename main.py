@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-#Import modules python
+#Import modules Python
 import logging
 import time
 
-#Import modules projet
+#Import modules Projet
 import verificationArguments
 import definitionCLI
 from globalConfig import ARGUMENTS_CLI

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#Import modules projet
+#Import modules Projet
 from globalConfig import ARGUMENTS_CLI
 
 """Calcul de la somme des pourcentage pour tous les arguments"""

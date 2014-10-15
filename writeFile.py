@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
+#Import modules Python
 from globalConfig import ARGUMENTS_CLI
-import os
 
 def writeM3U(listeArgumentsCLI, playlist):
     playlistFileName = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist

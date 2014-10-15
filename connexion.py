@@ -2,6 +2,8 @@
 
 #Import modules Python
 import sqlalchemy
+
+#Import modules Projet
 from globalConfig import LOGIN_BDD, PASS_BDD, IP_BDD, PORT_BDD
 
 #Connexion BDD

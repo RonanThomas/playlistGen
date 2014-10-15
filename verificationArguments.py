@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#Import modules projet
+#Import modules Python
 import logging
 import calcul
 

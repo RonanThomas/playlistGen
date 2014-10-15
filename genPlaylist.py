@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-#Import modules python
+#Import modules Python
 import sqlalchemy
 import random
 
-#Import modules projet
+#Import modules Projet
 from globalConfig import ARGUMENTS_CLI
 from connexion import connexionPG, tableMorceaux
 from writeFile import writeM3U, writeXSPF, writePLS

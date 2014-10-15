@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#Import modules python
+#Import modules Python
 import argparse
 import logging
 import sys
