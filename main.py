@@ -13,6 +13,7 @@ import verificationArguments
 import definitionCLI
 from globalConfig import ARGUMENTS_CLI
 from connexion import connexionPG, metadata, tableMorceaux
+from writeFile import writeM3U
 
 #Déclaration du fichier de logs
 logging.basicConfig(filename="info.log", level=logging.DEBUG)
@@ -25,15 +26,26 @@ listeArgumentsCLI = definitionCLI.argsParser.parse_args()
 
 for attribut in ARGUMENTS_CLI:
     if getattr(listeArgumentsCLI, attribut) is not None:
-        verificationArguments.checkArgs(listeArgumentsCLI, getattr(listeArgumentsCLI, attribut), attribut)
+        #verificationArguments.checkArgs(listeArgumentsCLI, getattr(listeArgumentsCLI, attribut), attribut)
         verificationArguments.checkSum(listeArgumentsCLI)
 
 for attribut in ARGUMENTS_CLI:
     if getattr(listeArgumentsCLI, attribut) is not None:
         for argument in getattr(listeArgumentsCLI, attribut):
-            selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.genre == argument[0])
+            if(attribut == 'genre'):
+                selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.genre == argument[0])
+            if(attribut == 'sousgenre'):
+                selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.sousgenre == argument[0])
+            if(attribut == 'artiste'):
+                selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.artiste == argument[0])
+            if(attribut == 'album'):
+                selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.album == argument[0])
+            if(attribut == 'titre'):
+                selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.titre == argument[0])
+            
             resultat = connexionPG.execute(selection_morceaux)
             resultat = list(resultat)
+            random.shuffle(resultat)
             argument.insert(2,[])
             i=0
             somme_duree = 0
@@ -44,8 +56,18 @@ for attribut in ARGUMENTS_CLI:
                     i += 1
                 else:
                     somme_duree -= ligne[5]
+                    
+playlist = []
+i = 0
+for attribut in ARGUMENTS_CLI:
+    if getattr(listeArgumentsCLI, attribut) is not None:
+        for argument in getattr(listeArgumentsCLI, attribut):
+            for musique in argument[2]:
+                playlist.insert(i, [musique[0], musique[5], musique[8]])
+                i += 1
+random.shuffle(playlist)
             
-print(listeArgumentsCLI.genre)
+writeM3U(listeArgumentsCLI, playlist)
 
 
 def Redbold(output):
