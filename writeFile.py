@@ -37,4 +37,3 @@ def writePLS(listeArgumentsCLI, playlist):
         i+=1
     playlistFile.write("NumberOfEntries="+ playlist.size() +"\nVersion=2")
     playlistFile.close()
-    
