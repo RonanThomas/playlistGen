@@ -7,7 +7,7 @@ import random
 #Import modules Projet
 from globalConfig import ARGUMENTS_CLI
 from connexion import connexionPG, tableMorceaux
-from writeFile import writeM3U, writeXSPF, writePLS
+from writePlaylistFile import writeM3U, writeXSPF, writePLS
 
 playlist = []
 
@@ -55,15 +55,14 @@ def genPlaylist(listeArgumentsCLI):
                     i += 1
     random.shuffle(playlist)
     
-    completePlaylist(listeArgumentsCLI, playlist)
+    completePlaylist(listeArgumentsCLI)
     
 
-def completePlaylist(listeArgumentsCLI, playlist):
+def completePlaylist(listeArgumentsCLI):
     somme_duree = 0
     for musique in playlist:
         somme_duree += musique[5]
-    
-    print("somme_duree: "+somme_duree)
+        
     if(somme_duree < listeArgumentsCLI.duree_playlist*60):
         selection_morceaux = sqlalchemy.select([tableMorceaux])
         resultat = connexionPG.execute(selection_morceaux)
@@ -71,7 +70,6 @@ def completePlaylist(listeArgumentsCLI, playlist):
         random.shuffle(resultat)
     
     i=len(playlist)
-    print(str(i) )
     for musique in resultat:
         somme_duree += musique[5]
         if(somme_duree < listeArgumentsCLI.duree_playlist*60):
