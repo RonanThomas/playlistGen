@@ -1,7 +1,19 @@
 # -*- coding: utf-8 -*-
 
-confFileName = "playlistGen.conf"
-confFile = open(confFileName, 'r')
+#Import modules Python
+import os
+import sys
+
+#Import modules Projet
+from color import *
+
+
+if not (os.path.exists(".playlistGen.conf")):
+    Redbold("/!\ Le fichier de configuration n'existe pas. Executez 'configure.py'. /!\\")
+    sys.exit()
+else:
+    confFileName = ".playlistGen.conf"
+    confFile = open(confFileName, 'r')
 
 for ligne in confFile:
     if(ligne[0] != '#' and ligne[0] != '\n'):

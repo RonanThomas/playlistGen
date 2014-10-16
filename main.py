@@ -4,24 +4,13 @@
 #Import modules Python
 import logging
 import time
-import os
 
 #Import modules Projet
 import verificationArguments
 import definitionCLI
 from globalConfig import ARGUMENTS_CLI
 from genPlaylist import downloadData, genPlaylist, writeFile, playlist
-
-def Redbold(output):
-    os.system("tput bold")
-    os.system("tput setaf 1")
-    print(output)
-    os.system("tput sgr 0")
-    
-def Bold(output):
-    os.system("tput bold")
-    print(output)
-    os.system("tput sgr 0")
+from color import *
 
 #Déclaration du fichier de logs
 logging.basicConfig(filename="info.log", level=logging.DEBUG)
