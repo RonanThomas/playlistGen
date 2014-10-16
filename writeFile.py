@@ -14,7 +14,7 @@ def writeXSPF(listeArgumentsCLI, playlist):
     playlistFile = open(playlistFileName, 'w')
     playlistFile.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
                        "<playlist version=\"1\" xmlns=\"http://xspf.org/ns/0/\">\n"+
-                       "<title>"+ playlistFileName +"</title>"+
+                       "\t<title>"+ playlistFileName +"</title>\n"+
                        "\t<trackList>\n")
     for musique in playlist:
         playlistFile.write("\t\t<track>\n\t\t\t<location>"+ musique[4] +"</location>\n"+
@@ -33,7 +33,7 @@ def writePLS(listeArgumentsCLI, playlist):
     playlistFile = open(playlistFileName, 'w')
     playlistFile.write("[playlist]\n")
     for musique in playlist:
-        playlistFile.write("File"+ str(i) +"="+ musique[4] +"\nTitle" + str(i) +"="+ musique[0] +"\nLength"+ str(i) +"="+ str(musique[3]))
+        playlistFile.write("File"+ str(i) +"="+ musique[4] +"\nTitle" + str(i) +"="+ musique[0] +"\nLength"+ str(i) +"="+ str(musique[3]) +"\n")
         i+=1
     playlistFile.write("NumberOfEntries="+ str(len(playlist)) +"\nVersion=2")
     playlistFile.close()
