@@ -9,9 +9,10 @@ from globalConfig import ARGUMENTS_CLI
 from connexion import connexionPG, tableMorceaux
 from writeFile import writeM3U, writeXSPF, writePLS
 
+playlist = []
+
 '''Téléchargement des données de la base de données'''
 def downloadData(listeArgumentsCLI):
-    print("DownloadData")
     global resultat
     for attribut in ARGUMENTS_CLI:
         if getattr(listeArgumentsCLI, attribut) is not None:
@@ -45,8 +46,6 @@ def downloadData(listeArgumentsCLI):
 
 '''Génération de la liste de playlist'''
 def genPlaylist(listeArgumentsCLI):
-    print("genPlaylist")
-    playlist = []
     i = 0
     for attribut in ARGUMENTS_CLI:
         if getattr(listeArgumentsCLI, attribut) is not None:
@@ -81,12 +80,10 @@ def completePlaylist(listeArgumentsCLI, playlist):
         else:
             somme_duree -= musique[5]
     
-    writeFile(listeArgumentsCLI, playlist)
     
     
 '''Appel de la fonction d'écriture du fichir de playlist'''
 def writeFile(listeArgumentsCLI, playlist):
-    print("writeFile")
     if(listeArgumentsCLI.type_playlist == 'm3u'):
         writeM3U(listeArgumentsCLI, playlist)
     if(listeArgumentsCLI.type_playlist == 'xspf'):
