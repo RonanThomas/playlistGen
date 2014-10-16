@@ -11,6 +11,7 @@ from writeFile import writeM3U, writeXSPF, writePLS
 
 '''Téléchargement des données de la base de données'''
 def downloadData(listeArgumentsCLI):
+    print("DownloadData")
     global resultat
     for attribut in ARGUMENTS_CLI:
         if getattr(listeArgumentsCLI, attribut) is not None:
@@ -29,14 +30,7 @@ def downloadData(listeArgumentsCLI):
                 resultat = connexionPG.execute(selection_morceaux)
                 resultat = list(resultat)
                 random.shuffle(resultat)
-    
-    saveData(listeArgumentsCLI)
-           
-'''Enregistrement des listes de données dans la liste d'arguments'''     
-def saveData(listeArgumentsCLI):
-    for attribut in ARGUMENTS_CLI:
-        if getattr(listeArgumentsCLI, attribut) is not None:
-            for argument in getattr(listeArgumentsCLI, attribut):
+                
                 argument.insert(2,[])
                 i=0
                 somme_duree = 0
@@ -48,8 +42,10 @@ def saveData(listeArgumentsCLI):
                     else:
                         somme_duree -= ligne[5]
 
+
 '''Génération de la liste de playlist'''
 def genPlaylist(listeArgumentsCLI):
+    print("genPlaylist")
     playlist = []
     i = 0
     for attribut in ARGUMENTS_CLI:
@@ -60,10 +56,37 @@ def genPlaylist(listeArgumentsCLI):
                     i += 1
     random.shuffle(playlist)
     
-    writeFile(listeArgumentsCLI, playlist)
+    completePlaylist(listeArgumentsCLI, playlist)
+    
 
+def completePlaylist(listeArgumentsCLI, playlist):
+    somme_duree = 0
+    for musique in playlist:
+        somme_duree += musique[5]
+    
+    print("somme_duree: "+somme_duree)
+    if(somme_duree < listeArgumentsCLI.duree_playlist*60):
+        selection_morceaux = sqlalchemy.select([tableMorceaux])
+        resultat = connexionPG.execute(selection_morceaux)
+        resultat = list(resultat)
+        random.shuffle(resultat)
+    
+    i=len(playlist)
+    print(str(i) )
+    for musique in resultat:
+        somme_duree += musique[5]
+        if(somme_duree < listeArgumentsCLI.duree_playlist*60):
+            playlist.insert(i, [musique[0], musique[2], musique[1], musique[5], musique[8]])
+            i += 1
+        else:
+            somme_duree -= musique[5]
+    
+    writeFile(listeArgumentsCLI, playlist)
+    
+    
 '''Appel de la fonction d'écriture du fichir de playlist'''
 def writeFile(listeArgumentsCLI, playlist):
+    print("writeFile")
     if(listeArgumentsCLI.type_playlist == 'm3u'):
         writeM3U(listeArgumentsCLI, playlist)
     if(listeArgumentsCLI.type_playlist == 'xspf'):
