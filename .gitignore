@@ -1,5 +1,5 @@
 info.log
-globalConfig.py
+playlistGen.conf
 
 *.m3u
 *.xspf
