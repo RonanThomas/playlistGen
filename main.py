@@ -10,7 +10,7 @@ import verificationArguments
 import definitionCLI
 from globalConfig import ARGUMENTS_CLI
 from genPlaylist import downloadData, genPlaylist, writeFile, playlist
-from color import *
+from color import Bold, Redbold
 
 #Déclaration du fichier de logs
 logging.basicConfig(filename="info.log", level=logging.DEBUG)
@@ -37,7 +37,8 @@ Bold("Sélection des morceaux...")
 downloadData(listeArgumentsCLI)
 #Génération de la playlist
 genPlaylist(listeArgumentsCLI)
-Redbold("Génération terminée !")
+Bold("Génération terminée !")
 Bold("Ecriture du fichier de playlist...")
 #Ecriture du fichier de playlist
 writeFile(listeArgumentsCLI, playlist)
+Redbold("Playlist enregistrée en tant '"+ listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist +"'")

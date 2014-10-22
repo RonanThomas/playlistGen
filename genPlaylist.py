@@ -8,6 +8,7 @@ import random
 from globalConfig import ARGUMENTS_CLI
 from connexion import connexionPG, tableMorceaux
 from writePlaylistFile import writeM3U, writeXSPF, writePLS
+from color import Redbold, Bold
 
 playlist = []
 
@@ -61,8 +62,8 @@ def genPlaylist(listeArgumentsCLI):
 def completePlaylist(listeArgumentsCLI):
     somme_duree = 0
     for musique in playlist:
-        somme_duree += musique[5]
-        
+        somme_duree += musique[3]
+    
     if(somme_duree < listeArgumentsCLI.duree_playlist*60):
         selection_morceaux = sqlalchemy.select([tableMorceaux])
         resultat = connexionPG.execute(selection_morceaux)
@@ -72,14 +73,14 @@ def completePlaylist(listeArgumentsCLI):
     i=len(playlist)
     for musique in resultat:
         somme_duree += musique[5]
+        
         if(somme_duree < listeArgumentsCLI.duree_playlist*60):
             playlist.insert(i, [musique[0], musique[2], musique[1], musique[5], musique[8]])
             i += 1
         else:
             somme_duree -= musique[5]
-    
-    
-    
+
+
 '''Appel de la fonction d'écriture du fichir de playlist'''
 def writeFile(listeArgumentsCLI, playlist):
     if(listeArgumentsCLI.type_playlist == 'm3u'):
