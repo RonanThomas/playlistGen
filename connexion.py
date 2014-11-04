@@ -7,9 +7,9 @@ import sqlalchemy
 from globalConfig import LOGIN_BDD, PASS_BDD, DOMAIN_BDD, PORT_BDD
 
 #Connexion BDD
-connexionPG = sqlalchemy.create_engine("postgresql://"+ LOGIN_BDD +":"+ PASS_BDD +"@"+ DOMAIN_BDD +":"+ PORT_BDD +"/radio_libre")
+connexionPG = sqlalchemy.create_engine("postgresql://"+ LOGIN_BDD +":"+ PASS_BDD +"@"+ DOMAIN_BDD +":"+ PORT_BDD +"/tdabre")
 
-metadata = sqlalchemy.MetaData()
+metadata = sqlalchemy.MetaData(schema="radio_libre")
 
 #Construction de la table morceaux
 tableMorceaux = sqlalchemy.Table('morceaux', metadata,

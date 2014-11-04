@@ -5,6 +5,7 @@ import sqlalchemy
 import random
 
 #Import modules Projet
+import calcul
 from globalConfig import ARGUMENTS_CLI
 from connexion import connexionPG, tableMorceaux
 from writePlaylistFile import writeM3U, writeXSPF, writePLS
@@ -56,7 +57,8 @@ def genPlaylist(listeArgumentsCLI):
                     i += 1
     random.shuffle(playlist)
     
-    completePlaylist(listeArgumentsCLI)
+    if(calcul.getSommePourcent(listeArgumentsCLI) != 100):
+        completePlaylist(listeArgumentsCLI)
     
 
 def completePlaylist(listeArgumentsCLI):
