@@ -52,7 +52,7 @@ def genPlaylist(listeArgumentsCLI):
         if getattr(listeArgumentsCLI, attribut) is not None:
             for argument in getattr(listeArgumentsCLI, attribut):
                 for musique in argument[2]:
-                    playlist.insert(i, [musique[0], musique[2], musique[1], musique[5], musique[8]])
+                    playlist.insert(i, [musique[0], musique[2], musique[1], musique[3], musique[5], musique[8]])
                     i += 1
     random.shuffle(playlist)
     
@@ -62,7 +62,7 @@ def genPlaylist(listeArgumentsCLI):
 def completePlaylist(listeArgumentsCLI):
     somme_duree = 0
     for musique in playlist:
-        somme_duree += musique[3]
+        somme_duree += musique[4]
     
     if(somme_duree < listeArgumentsCLI.duree_playlist*60):
         selection_morceaux = sqlalchemy.select([tableMorceaux])
@@ -75,7 +75,7 @@ def completePlaylist(listeArgumentsCLI):
         somme_duree += musique[5]
         
         if(somme_duree < listeArgumentsCLI.duree_playlist*60):
-            playlist.insert(i, [musique[0], musique[2], musique[1], musique[5], musique[8]])
+            playlist.insert(i, [musique[0], musique[2], musique[1], musique[3], musique[5], musique[8]])
             i += 1
         else:
             somme_duree -= musique[5]

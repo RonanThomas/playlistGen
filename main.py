@@ -22,7 +22,7 @@ Redbold("Génération de la playslit...")
 definitionCLI.defArgumentsPositionnels()
 definitionCLI.defArgumentsOptionnels()
 
-Bold("Parcour de ligne de commande...")
+Bold("Parcours de ligne de commande...")
 #Déclaration du parser
 listeArgumentsCLI = definitionCLI.argsParser.parse_args()
 
