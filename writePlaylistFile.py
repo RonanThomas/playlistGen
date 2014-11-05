@@ -7,7 +7,7 @@ def writeM3U(listeArgumentsCLI, playlist):
     playlistFile.write("#EXTM3U\n\n")
     for musique in playlist:
         playlistFile.write("#EXTINF:" + str(musique[3]) + ", " + musique[1] + " - " + musique[0] + "\n")
-        playlistFile.write(musique[5] + "\n\n")
+        playlistFile.write(musique[4] + "\n\n")
     playlistFile.close()
 
 '''Ecriture du fichier de playlist au format XSPF'''
