@@ -58,7 +58,7 @@ def genPlaylist(listeArgumentsCLI):
     random.shuffle(playlist)
     
     if(calcul.getSommePourcent(listeArgumentsCLI) != 100):
-        completePlaylist(listeArgumentsCLI)
+        return completePlaylist(listeArgumentsCLI)
     
 
 def completePlaylist(listeArgumentsCLI):
@@ -75,12 +75,13 @@ def completePlaylist(listeArgumentsCLI):
     i=len(playlist)
     for musique in resultat:
         somme_duree += musique[5]
-        
         if(somme_duree < listeArgumentsCLI.duree_playlist*60):
             playlist.insert(i, [musique[0], musique[2], musique[1], musique[5], musique[8]])
             i += 1
         else:
             somme_duree -= musique[5]
+            
+    return somme_duree
 
 
 '''Appel de la fonction d'écriture du fichir de playlist'''
