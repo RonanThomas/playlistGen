@@ -14,9 +14,9 @@ from writeLogFile import writeLogs
 from color import Bold, Redbold
 
 #Déclaration du fichier de logs
-logging.basicConfig(filename="info.log", level=logging.DEBUG)
-logging.info("*****************************")
-logging.info("***** " + time.strftime('%d/%m/%y %H:%M:%S', time.localtime()) + " *****\n")
+logging.basicConfig(filename="info.log", level=logging.DEBUG, format="")
+logging.info("*********************************")
+logging.info("******* " + time.strftime('%d/%m/%y %H:%M:%S', time.localtime()) + " *******\n")
 
 Redbold("Génération de la playslit...")
 
@@ -38,6 +38,7 @@ Bold("Sélection des morceaux...")
 #Téléchargement des données
 downloadData(listeArgumentsCLI)
 #Génération de la playlist
+Bold("Génération de la playlist...")
 somme_duree = genPlaylist(listeArgumentsCLI)
 Bold("Génération terminée !")
 Bold("Ecriture du fichier de playlist...")
