@@ -2,7 +2,6 @@
 
 #Import modules Python
 import logging
-from gi.overrides.keysyms import minutes, seconds
 
 def writeLogs(listeArgumentsCLI, playlist, somme_duree):
     playlistFileName = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist
