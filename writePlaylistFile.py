@@ -19,10 +19,10 @@ def writeXSPF(listeArgumentsCLI, playlist):
                        "\t<title>"+ playlistFileName +"</title>\n"+
                        "\t<trackList>\n")
     for musique in playlist:
-        playlistFile.write("\t\t<track>\n\t\t\t<location>"+ musique[4] +"</location>\n"+
+        playlistFile.write("\t\t<track>\n\t\t\t<location>file://"+ musique[4] +"</location>\n"+
                            "\t\t\t<title>"+ musique[0] +"</title>\n"+
                            "\t\t\t<creator>"+ musique[1] +"</creator>\n"+
-                           "\t\t\t<genre>"+ musique[3] +"</genre>\n"+
+                           "\t\t\t<album>"+ musique[2] +"</album>\n"+
                            "\t\t\t<duration>"+ str(musique[3] * 1000) +"</duration>\n"+
                            "\t\t</track>\n")
     playlistFile.write("\t</trackList>\n</playlist>")
