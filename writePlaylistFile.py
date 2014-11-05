@@ -6,7 +6,7 @@ def writeM3U(listeArgumentsCLI, playlist):
     playlistFile = open(playlistFileName, 'w')
     playlistFile.write("#EXTM3U\n\n")
     for musique in playlist:
-        playlistFile.write("#EXTINF:" + str(musique[4]) + ", " + musique[1] + " - " + musique[0] + "\n")
+        playlistFile.write("#EXTINF:" + str(musique[3]) + ", " + musique[1] + " - " + musique[0] + "\n")
         playlistFile.write(musique[5] + "\n\n")
     playlistFile.close()
 
@@ -19,12 +19,11 @@ def writeXSPF(listeArgumentsCLI, playlist):
                        "\t<title>"+ playlistFileName +"</title>\n"+
                        "\t<trackList>\n")
     for musique in playlist:
-        playlistFile.write("\t\t<track>\n\t\t\t<location>"+ musique[5] +"</location>\n"+
+        playlistFile.write("\t\t<track>\n\t\t\t<location>"+ musique[4] +"</location>\n"+
                            "\t\t\t<title>"+ musique[0] +"</title>\n"+
                            "\t\t\t<creator>"+ musique[1] +"</creator>\n"+
-                           "\t\t\t<album>"+ musique[2] +"</album>\n"+
                            "\t\t\t<genre>"+ musique[3] +"</genre>\n"+
-                           "\t\t\t<duration>"+ str(musique[4] * 1000) +"</duration>\n"+
+                           "\t\t\t<duration>"+ str(musique[3] * 1000) +"</duration>\n"+
                            "\t\t</track>\n")
     playlistFile.write("\t</trackList>\n</playlist>")
     playlistFile.close()
@@ -36,9 +35,9 @@ def writePLS(listeArgumentsCLI, playlist):
     playlistFile = open(playlistFileName, 'w')
     playlistFile.write("[playlist]\n\n")
     for musique in playlist:
-        playlistFile.write("File"+ str(i) +"="+ musique[5] +"\n")
+        playlistFile.write("File"+ str(i) +"="+ musique[4] +"\n")
         playlistFile.write("Title"+ str(i) +"="+ musique[0] + "\n")
-        playlistFile.write("Length"+ str(i) +"="+ str(musique[4]) + "\n\n")
+        playlistFile.write("Length"+ str(i) +"="+ str(musique[3]) + "\n\n")
         i+=1
     playlistFile.write("NumberOfEntries="+ str(len(playlist)) +"\nVersion=2")
     playlistFile.close()
