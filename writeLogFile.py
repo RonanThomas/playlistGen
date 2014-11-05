@@ -10,7 +10,8 @@ def writeLogs(listeArgumentsCLI, playlist, somme_duree):
     nombrePiste = len(playlist)
     logging.info("Nombre de pistes : " + str(nombrePiste) + "\n")
     
-    logging.info("Durée totale : " + convertToHours(somme_duree) + "\n\n")
+    logging.info("Durée totale : " + convertToHours(somme_duree))
+    logging.info("Pourcentage manquant : " + str((((listeArgumentsCLI.duree_playlist * 60)-somme_duree)/(listeArgumentsCLI.duree_playlist * 60))*100)[:5] + "%\n\n")
     
 def convertToHours(duree):
     jours = 0
@@ -23,6 +24,6 @@ def convertToHours(duree):
         minutes = minutes % 60
         if(duree >= 86400):
             jours = int(heures / 24)
-            heures = heures % 60
+            heures = heures % 24
         
     return str(jours) + "j " + str(heures) + "h " + str(minutes) + "m " + str(secondes) + "s"
