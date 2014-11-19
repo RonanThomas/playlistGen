@@ -11,7 +11,7 @@ import definitionCLI
 from globalConfig import ARGUMENTS_CLI
 from genPlaylist import downloadData, genPlaylist, writeFile, playlist
 from writeLogFile import writeLogs
-from color import Bold, Redbold
+from color import Red, Redbold, Bold
 
 #Déclaration du fichier de logs
 logging.basicConfig(filename="info.log", level=logging.DEBUG, format="")

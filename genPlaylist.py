@@ -9,7 +9,7 @@ import calcul
 from globalConfig import ARGUMENTS_CLI
 from connexion import connexionPG, tableMorceaux
 from writePlaylistFile import writeM3U, writeXSPF, writePLS
-from color import Redbold, Bold
+from color import Red, Redbold, Bold
 
 playlist = []
 

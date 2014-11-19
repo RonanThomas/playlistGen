@@ -8,7 +8,7 @@ import sys
 
 #Import modules Projet
 from configuration import writeConfig
-from color import *
+from color import Red, Redbold, Bold
 
 def saisiePassword():
     while True:
