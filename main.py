@@ -10,11 +10,13 @@ import verificationArguments
 import definitionCLI
 from globalConfig import ARGUMENTS_CLI
 from genPlaylist import downloadData, genPlaylist, writeFile, playlist
-from color import *
+from writeLogFile import writeLogs
+from color import Red, Redbold, Bold
 
 #Déclaration du fichier de logs
-logging.basicConfig(filename="info.log", level=logging.DEBUG)
-logging.info("***** " + time.strftime('%d/%m/%y %H:%M:%S', time.localtime()) + " *****")
+logging.basicConfig(filename="info.log", level=logging.DEBUG, format="")
+logging.info("*********************************")
+logging.info("******* " + time.strftime('%d/%m/%y %H:%M:%S', time.localtime()) + " *******\n")
 
 Redbold("Génération de la playslit...")
 
@@ -22,7 +24,7 @@ Redbold("Génération de la playslit...")
 definitionCLI.defArgumentsPositionnels()
 definitionCLI.defArgumentsOptionnels()
 
-Bold("Parcour de ligne de commande...")
+Bold("Parcours de ligne de commande...")
 #Déclaration du parser
 listeArgumentsCLI = definitionCLI.argsParser.parse_args()
 
@@ -36,8 +38,13 @@ Bold("Sélection des morceaux...")
 #Téléchargement des données
 downloadData(listeArgumentsCLI)
 #Génération de la playlist
-genPlaylist(listeArgumentsCLI)
-Redbold("Génération terminée !")
+Bold("Génération de la playlist...")
+somme_duree = genPlaylist(listeArgumentsCLI)
+Bold("Génération terminée !")
 Bold("Ecriture du fichier de playlist...")
 #Ecriture du fichier de playlist
 writeFile(listeArgumentsCLI, playlist)
+Bold("Ecriture du fichier de logs...")
+#Ecriture du fichier de log
+writeLogs(listeArgumentsCLI, playlist, somme_duree)
+Redbold("Playlist enregistrée en tant '"+ listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist +"'")

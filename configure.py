@@ -8,7 +8,7 @@ import sys
 
 #Import modules Projet
 from configuration import writeConfig
-from color import *
+from color import Red, Redbold, Bold
 
 def saisiePassword():
     while True:
@@ -25,15 +25,14 @@ login_bdd = pass_bdd = domain_bdd = port_bdd = None
 configFileName = ".playlistGen.conf"
 
 argsParser.add_argument("-l", "--login", help="Modification du LOGGIN")
-argsParser.add_argument("-p", "--password", help="Modification du PASSWORD /!\ Saisir '--password true' pour modifier le mot de passe /!\\")
 argsParser.add_argument("-d", "--domain", help="Modification du DOMAIN")
-argsParser.add_argument("-P", "--port", help="Modification du PORT")
+argsParser.add_argument("-p", "--port", help="Modification du PORT")
 
 listeArgumentsCLI = argsParser.parse_args()
     
 Redbold("Configuration de playlistGen...")
 
-if not (listeArgumentsCLI.login is None and listeArgumentsCLI.password == None and listeArgumentsCLI.domain == None and listeArgumentsCLI.port == None):
+if not (listeArgumentsCLI.login is None and listeArgumentsCLI.domain == None and listeArgumentsCLI.port == None):
     configFile = open(".playlistGen.conf", 'r')
     for ligne in configFile:
         if(ligne.split('=')[0] == 'LOGIN_BDD'):
@@ -52,7 +51,7 @@ if not (listeArgumentsCLI.login is None and listeArgumentsCLI.password == None a
 configFile = open(configFileName, 'w')
 writeConfig.writeHead(configFile)
 
-if(listeArgumentsCLI.login is None and listeArgumentsCLI.password is None and listeArgumentsCLI.domain is None and listeArgumentsCLI.port is None):
+if(listeArgumentsCLI.login is None and listeArgumentsCLI.domain is None and listeArgumentsCLI.port is None):
     login_bdd = input("Saisir l'identifiant de la base de données : ")
     pass_bdd = saisiePassword()
     domain_bdd = input("Saisir le domaine ou l'IP du SGBD : ")
@@ -74,13 +73,6 @@ else:
     if listeArgumentsCLI.login is not None:
         Bold("Modification du LOGIN")
         login_bdd = listeArgumentsCLI.login
-        
-    if listeArgumentsCLI.password is not None:
-        if listeArgumentsCLI.password.lower() == "true":
-            Bold("Modification du PASSWORD")
-            saisiePassword()
-        else:
-            Red("Saisir '--password true' pour modifier le mot de passe de la base de données\nLe mot de passe n'a pas été modifié...")
             
     if listeArgumentsCLI.domain is not None:
         Bold("Modification du DOMAIN")
@@ -99,6 +91,6 @@ else:
             Red("/!\ Le numéro du port saisie n'est pas un nombre (NaN): '" + listeArgumentsCLI.port + "' /!\\")
             sys.exit()
     
-    writeConfig.writeData(configFile, login_bdd, pass_bdd, domain_bdd, port_bdd)
+    writeConfig.writeData(configFile, login_bdd, domain_bdd, port_bdd)
             
 Redbold("Configuration de playlistGen terminée.")
