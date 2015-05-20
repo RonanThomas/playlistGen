@@ -11,7 +11,7 @@ info.log
 
 *pycache*
 
-.aux
-.log
-.synctex.gz
-.toc
+*.aux
+*.log
+*.synctex.gz
+*.toc
