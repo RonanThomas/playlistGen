@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+"""Ce module permet de récupérer le fichier de config, si il existe """
+
 #Import modules Python
 import os
 import sys
