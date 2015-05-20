@@ -25,7 +25,7 @@ definitionCLI.defArgumentsPositionnels()
 definitionCLI.defArgumentsOptionnels()
 
 Bold("Parcours de ligne de commande...")
-#Déclaration du parser
+## Déclaration du parser
 listeArgumentsCLI = definitionCLI.argsParser.parse_args()
 
 Bold("Vérification des arguments...")
@@ -39,6 +39,7 @@ Bold("Sélection des morceaux...")
 downloadData(listeArgumentsCLI)
 #Génération de la playlist
 Bold("Génération de la playlist...")
+## Durée exacte de la playlist
 somme_duree = genPlaylist(listeArgumentsCLI)
 Bold("Génération terminée !")
 Bold("Ecriture du fichier de playlist...")
