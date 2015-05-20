@@ -10,3 +10,8 @@ info.log
 .settings/
 
 *pycache*
+
+.aux
+.log
+.synctex.gz
+.toc
