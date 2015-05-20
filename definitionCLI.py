@@ -8,8 +8,6 @@ import logging
 import sys
 
 class appendCheckArgs(argparse.Action):
-    """Classe de vérification des arguments"""
-    
     def __init__(self, option_strings, dest, nargs=None, **kwargs):
         if nargs == 2:
             super(appendCheckArgs, self).__init__(option_strings, dest, nargs=nargs, **kwargs)
@@ -32,7 +30,6 @@ class appendCheckArgs(argparse.Action):
             setattr(namespace, self.dest, [values])
 
 argsParser = argparse.ArgumentParser()
-
 
 ## Déclaration des arguments positionnels
 def defArgumentsPositionnels():
