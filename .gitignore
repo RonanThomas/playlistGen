@@ -15,3 +15,5 @@ info.log
 *.log
 *.synctex.gz
 *.toc
+
+Doxyfile
