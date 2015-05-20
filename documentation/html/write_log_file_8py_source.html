@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('write_log_file_8py_source.html','');})
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    logging.info(<span class="stringliteral">&quot;Pourcentage manquant : &quot;</span> + str((((listeArgumentsCLI.duree_playlist * 60)-somme_duree)/(listeArgumentsCLI.duree_playlist * 60))*100)[:5] + <span class="stringliteral">&quot;%\n\n&quot;</span>)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">## Convertie en heure/minutes/secondes un durée en minutes</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">## Convertie en heure/minutes/secondes une durée en secondes</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">#  @param duree : Int</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespacewrite_log_file.html#a93dc72eb69c26760b2092850d7350133">   23</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacewrite_log_file.html#a93dc72eb69c26760b2092850d7350133">convertToHours</a>(duree):</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    jours = 0</div>
@@ -141,7 +141,7 @@ $(document).ready(function(){initNavTree('write_log_file_8py_source.html','');})
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            heures = heures % 24</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> str(jours) + <span class="stringliteral">&quot;j &quot;</span> + str(heures) + <span class="stringliteral">&quot;h &quot;</span> + str(minutes) + <span class="stringliteral">&quot;m &quot;</span> + str(secondes) + <span class="stringliteral">&quot;s&quot;</span></div>
-<div class="ttc" id="namespacewrite_log_file_html_a93dc72eb69c26760b2092850d7350133"><div class="ttname"><a href="namespacewrite_log_file.html#a93dc72eb69c26760b2092850d7350133">writeLogFile.convertToHours</a></div><div class="ttdeci">def convertToHours</div><div class="ttdoc">Convertie en heure/minutes/secondes un durée en minutes. </div><div class="ttdef"><b>Definition:</b> <a href="write_log_file_8py_source.html#l00023">writeLogFile.py:23</a></div></div>
+<div class="ttc" id="namespacewrite_log_file_html_a93dc72eb69c26760b2092850d7350133"><div class="ttname"><a href="namespacewrite_log_file.html#a93dc72eb69c26760b2092850d7350133">writeLogFile.convertToHours</a></div><div class="ttdeci">def convertToHours</div><div class="ttdoc">Convertie en heure/minutes/secondes une durée en secondes. </div><div class="ttdef"><b>Definition:</b> <a href="write_log_file_8py_source.html#l00023">writeLogFile.py:23</a></div></div>
 <div class="ttc" id="namespacewrite_log_file_html_a2e6102ae828dee2f9eec9857182efc9b"><div class="ttname"><a href="namespacewrite_log_file.html#a2e6102ae828dee2f9eec9857182efc9b">writeLogFile.writeLogs</a></div><div class="ttdeci">def writeLogs</div><div class="ttdoc">Ecriture du fichier du fichier de logs. </div><div class="ttdef"><b>Definition:</b> <a href="write_log_file_8py_source.html#l00010">writeLogFile.py:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -149,7 +149,7 @@ $(document).ready(function(){initNavTree('write_log_file_8py_source.html','');})
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="write_log_file_8py.html">writeLogFile.py</a></li>
-    <li class="footer">Generated on Wed May 20 2015 16:55:08 for PlaylistGen by
+    <li class="footer">Generated on Wed May 20 2015 16:57:25 for PlaylistGen by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
