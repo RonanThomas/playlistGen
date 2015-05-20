@@ -1,0 +1,86 @@
+\documentclass[a4paper,titlepage,oneside]{article}
+
+\usepackage{DocumentationUtilisateur}
+\begin{document}
+\pagestyle{empty}
+
+%%% Première couverture %%%
+\imageWOCaption{data/logo_pg.png}{width=5cm}{logo}
+\begin{center}
+\vspace{3.5cm}
+\Huge{\textbf{Générateur de playlist}}\\
+\Huge{PlaylistGen}\\
+\vspace{1cm}
+\huge{Documentation utilisateur}
+\vfill
+\end{center}
+\begin{flushleft}
+Ronan \bsc{Legardinier}\\
+Thomas \bsc{Dabre}\\
+\hfill
+\today
+\end{flushleft}
+\newpage
+%%% Première couverture %%%
+
+\newpage
+\pagestyle{fancy}
+\setcounter{page}{1}
+\HEADER{Table des matières}
+\tableofcontents{}
+\newpage
+
+
+\HEADER{Documentation utilisateur}
+\section{Configuration}
+La configuration de l'application passe par le script \texttt{configure.py}.\\
+
+Pour configurer l'application, \texttt{configure.py} requière :
+\begin{itemize}
+	\item L'identifiant de la base de données.
+	\item Le mot de passe la base de données.
+	\item L'adresse IP ou l'URI hôte de la base de données.
+	\item Le port d'accès à la base de données.
+\end{itemize}
+
+\subsection{Exemple}
+\image{data/configure.png}{width=\linewidth}{Screenshot : configure.py}{fig:configure}
+
+\section{Utilisation}
+L'application se lance ensuite avec le script \texttt{main.py}.\\
+
+L'utilisation de l'application requière trois arguments obligatoires tels que :
+\begin{itemize}
+	\item La durée totale de la playlist (en minutes).
+	\item Le nom du fichier de sortie de la playlist.
+	\item Le format de la playlist (\textit{M3U, XSPF, PLS}).\\
+\end{itemize}
+
+\textboxed{\linewidth}{REMARQUE}{L'utilisation de ces trois arguments seuls génère une playlist totalement aléatoire.}\\\\
+
+L'application peut également recevoir des arguments facultatifs tels que :
+\begin{center}
+	\begin{tabularx}{8cm}{|X|l|}
+		\hline
+		\textbf{Argument} & \textbf{Écriture}\\
+		\hline
+		\hline
+		Genre		& -g unGenre unPourcentage\\
+		Sous-genre	& -G unSousGenre unPourcentage\\
+		Artiste		& -a unArtiste unPourcentage\\
+		Album		& -A unAlbum unPourcentage\\
+		Titre		& -t unTitre unPourcentage\\
+		\hline
+	\end{tabularx}
+\end{center}
+
+\newpage
+\subsection{Exemples}
+\image{data/main.png}{width=\linewidth}{Screenshot : main.py}{fig:main}
+
+Dans la premier exemple, la playlist générée au format m3u, d'une durée totale de 60 minutes, sera totalement aléatoire.
+
+Tandis que dans le second exemple, la playlist sera composée de 50\% de genre '\texttt{rock}' et 20\% de l'album '\texttt{reversion}'.
+\vfill
+Document rédigé avec \LaTeX{}.
+\end{document}
