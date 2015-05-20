@@ -11,6 +11,7 @@ from connexion import connexionPG, tableMorceaux
 from writePlaylistFile import writeM3U, writeXSPF, writePLS
 from color import Red, Redbold, Bold
 
+## Liste des morceau de la playlist
 playlist = []
 
 ## Téléchargement des données de la base de données
