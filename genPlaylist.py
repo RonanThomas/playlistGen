@@ -64,7 +64,8 @@ def genPlaylist(listeArgumentsCLI):
 def completePlaylist(listeArgumentsCLI):
     somme_duree = 0
     for musique in playlist:
-        somme_duree += musique[4]
+        print(musique)
+        somme_duree += musique[3]
     
     if(somme_duree < listeArgumentsCLI.duree_playlist*60):
         selection_morceaux = sqlalchemy.select([tableMorceaux])
@@ -75,6 +76,7 @@ def completePlaylist(listeArgumentsCLI):
     i=len(playlist)
     for musique in resultat:
         somme_duree += musique[5]
+        print('lolilol')
         if(somme_duree < listeArgumentsCLI.duree_playlist*60):
             playlist.insert(i, [musique[0], musique[2], musique[1], musique[5], musique[8]])
             i += 1
