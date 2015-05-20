@@ -5,9 +5,6 @@
 # \author Grégory DAVID
 # \author https://github.com/btsmalrauxallonnes/generateur-de-playlist
 # \copyright GNU Public License.
-#
-#
-#
 
 #Import modules Python
 import argparse
