@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+## Ecriture de l'entete du fichier de configuration
+#  @param configFile : String
 def writeHead(configFile):
     configFile.write("#######################################################################\n")
     configFile.write("#\n")
@@ -15,7 +17,13 @@ def writeHead(configFile):
     configFile.write("# /!\ UTILISEZ 'configure.py' POUR MODIFIER LES VALEURS /!\\\n")
     configFile.write("#\n")
     configFile.write("#######################################################################\n\n")
-    
+   
+## Ecriture du corp du fichier de configuration
+#  @param configFile : String
+#  @param login_bdd : String
+#  @param pass_bdd : String
+#  @param domain_bdd : String
+#  @param port_bdd : Int
 def writeData(configFile, login_bdd, pass_bdd, domain_bdd, port_bdd):
     configFile.write("LOGIN_BDD="+ login_bdd +"\n")
     configFile.write("PASS_BDD="+ pass_bdd +"\n")
