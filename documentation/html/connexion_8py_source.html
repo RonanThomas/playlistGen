@@ -115,29 +115,30 @@ $(document).ready(function(){initNavTree('connexion_8py_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">#Import modules Projet</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">from</span> globalConfig <span class="keyword">import</span> LOGIN_BDD, PASS_BDD, DOMAIN_BDD, PORT_BDD</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">#Connexion BDD</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">## Connexion à a base de donnée</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespaceconnexion.html#a04ab7d8e1a89eccddc39a10579600761">   12</a></span>&#160;connexionPG = sqlalchemy.create_engine(<span class="stringliteral">&quot;postgresql://&quot;</span>+ LOGIN_BDD +<span class="stringliteral">&quot;:&quot;</span>+ PASS_BDD +<span class="stringliteral">&quot;@&quot;</span>+ DOMAIN_BDD +<span class="stringliteral">&quot;:&quot;</span>+ PORT_BDD +<span class="stringliteral">&quot;/radio_libre&quot;</span>)</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespaceconnexion.html#afba022aae1b9feefc950c8f710608ce0">   14</a></span>&#160;metadata = sqlalchemy.MetaData()</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">#Construction de la table morceaux</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespaceconnexion.html#ab9df2fae1fc3e6a5f099777d7289f2ea">   17</a></span>&#160;tableMorceaux = sqlalchemy.Table(<span class="stringliteral">&#39;morceaux&#39;</span>, metadata,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;titre&#39;</span>, sqlalchemy.String),</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;album&#39;</span>, sqlalchemy.String),</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;artiste&#39;</span>, sqlalchemy.String),</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;genre&#39;</span>, sqlalchemy.String),</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;sousgenre&#39;</span>, sqlalchemy.String),</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;duree&#39;</span>, sqlalchemy.Integer),</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;format&#39;</span>, sqlalchemy.String),</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;polyphonie&#39;</span>, sqlalchemy.Integer),</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;chemin&#39;</span>, sqlalchemy.String))</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">## Meta-data de SQLAlchemy</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespaceconnexion.html#afba022aae1b9feefc950c8f710608ce0">   15</a></span>&#160;metadata = sqlalchemy.MetaData()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">## Table morceaux</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespaceconnexion.html#ab9df2fae1fc3e6a5f099777d7289f2ea">   18</a></span>&#160;tableMorceaux = sqlalchemy.Table(<span class="stringliteral">&#39;morceaux&#39;</span>, metadata,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;titre&#39;</span>, sqlalchemy.String),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;album&#39;</span>, sqlalchemy.String),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;artiste&#39;</span>, sqlalchemy.String),</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;genre&#39;</span>, sqlalchemy.String),</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;sousgenre&#39;</span>, sqlalchemy.String),</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;duree&#39;</span>, sqlalchemy.Integer),</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;format&#39;</span>, sqlalchemy.String),</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;polyphonie&#39;</span>, sqlalchemy.Integer),</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                                 sqlalchemy.Column(<span class="stringliteral">&#39;chemin&#39;</span>, sqlalchemy.String))</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="connexion_8py.html">connexion.py</a></li>
-    <li class="footer">Generated on Wed May 20 2015 17:01:48 for PlaylistGen by
+    <li class="footer">Generated on Wed May 20 2015 20:30:25 for PlaylistGen by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

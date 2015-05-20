@@ -1,5 +1,6 @@
 var global_config_8py =
 [
+    [ "ARGUMENTS_CLI", "global_config_8py.html#a320d4a961ecdaab554238e02d1dd879c", null ],
     [ "confFile", "global_config_8py.html#af324a1a9d436da172bca663a7612a327", null ],
     [ "confFileName", "global_config_8py.html#a13346ab863f2742d5681b1707dd0e335", null ],
     [ "DOMAIN_BDD", "global_config_8py.html#abc6d50e56201bbe79bbce06b676d4e74", null ],
