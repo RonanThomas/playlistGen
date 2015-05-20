@@ -1,12 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-"""
-    Ce module permet la configuration du programme
-    avec les informations permettant de l'authentification
-    à la base de données
-"""
-
+"""Ce module permet la configuration du programme avec les informations permettant de l'authentification à la base de données"""
 
 #Import modules Python
 import getpass
@@ -17,11 +12,9 @@ import sys
 from configuration import writeConfig
 from color import Red, Redbold, Bold
 
+## Demmande la saisie du mot de passe de la base de données
+#  @return pass_bdd : String
 def saisiePassword():
-    """
-        Permet la saisie et enregistre les différentes informations (nom d'utilisateur, 
-        mot de passe, adresse du serveur et le port) de la base de données.
-    """
     while True:
         pass_bdd = getpass.getpass("Saisir le mot de passe de la base de données : ")
         confirm_pass_bdd = getpass.getpass("Confirmation du mot de passe de la base de données : ")
