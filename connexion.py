@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-    Ce module permet d'établir la connexion à la base de données ainsi que
-    la création de la table contenant les informations des morceaux
-"""
+"""Ce module permet d'établir la connexion à la base de données ainsi que la création de la table contenant les informations des morceaux"""
 
 #Import modules Python
 import sqlalchemy
