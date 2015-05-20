@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """Ce module définie la ligne de commande"""
+
 ##
 # \author Grégory DAVID
 # \author https://github.com/btsmalrauxallonnes/generateur-de-playlist
@@ -33,6 +34,7 @@ class appendCheckArgs(argparse.Action):
             logging.debug(values)
             setattr(namespace, self.dest, [values])
 
+## Déclaration du parser
 argsParser = argparse.ArgumentParser()
 
 ## Déclaration des arguments positionnels
