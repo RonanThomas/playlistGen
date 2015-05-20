@@ -1,0 +1,99 @@
+\documentclass[a4paper,titlepage,oneside]{article}
+
+\usepackage{cahierDesCharges}
+\begin{document}
+\pagestyle{empty}
+
+%%% Première couverture %%%
+\imageWOCaption{data/logo_pg.png}{width=5cm}{logo}
+\begin{center}
+\vspace{3.5cm}
+\Huge{\textbf{Générateur de playlit}}\\
+\Huge{PlaylistGen}\\
+\vspace{1cm}
+\huge{Cahier des charges fonctionnel}
+\vfill
+\end{center}
+\begin{flushleft}
+Ronan \bsc{Legardinier}\\
+Thomas \bsc{Dabre}
+\hfill
+\today
+\end{flushleft}
+\newpage
+%%% Première couverture %%%
+
+\newpage
+\pagestyle{fancy}
+\setcounter{page}{1}
+\HEADER{Table des matières}
+\tableofcontents{}
+\newpage
+
+
+\HEADER{Cahier des charges fonctionnel}
+\section{Présentation du problème}
+\subsection{Contexte}
+La section BTS SIO du Lycée André Malraux gère, maintient et anime la
+Radio Libre de l’établissement.
+
+La nature des morceaux qui sont écoutés par les auditeurs provient du travail
+du programmateur radio dont la responsabilité est de concevoir l’enchaînement
+musical diffusé.
+
+Pour cela, le programmateur radio utilise le logiciel \textit{VLC}. Il ajoute à la main tous les morceaux qu’il souhaite diffuser. Une fois ajoutés dans la liste de lecture de \textit{VLC}, le programmateur radio ordonne les morceaux selon la dynamique qu’il souhaite donner, et enfin il sauvegarde cette liste de lecture (\textit{playlist}) dans le format \textit{M3U} et le stocke dans le système de fichier à l’endroit défini par l’équipe de la radio.\\
+
+\textit{Tout cela est bien fastidieux}, se dit le programmateur radio.\\
+
+Non content de ce dur labeur, le programmateur radio en appel aux compétences d’un binôme de développeurs pour lui offrir un outil de génération automatique de playlist.
+
+\subsection{Projet}
+L’objectif global est de fournir à l’organisation un outil de génération de playlist musicale au format initial en \textit{M3U} et \textit{XSPF} afin de correspondre aux attentes techniques de \textit{VLC}.
+
+Par ailleurs, l’avantage de ces formats de playlist est qu’ils sont standardisés et
+sont ainsi lisibles depuis la majorité des lecteurs multimédia.
+
+\subsubsection{Listes exhaustives des éléments et contraintes}
+L’environnement de fonctionnement est un système d’exploitation GNU/Linux dont l’interface graphique est extrêmement peu utilisée.
+
+La majorité des applications et programmes employés le sont en interface de ligne de commande 3.
+
+La seule chose dont nous disposons est une base de données des morceaux musicaux regroupant les champs suivants : \textit{Id, Titre, Album, Artiste, Genre, Sous-Genre, Durée, Polyphonie, Format, Chemin}.
+
+Cette base de données utilise le format de stockage SQLite et est associée au programme dans un fichier nommé : \texttt{musiqueDB.sqlite}.
+
+La structure et le jeu de données de la base sont disponibles au téléchargement sur : \texttt{https://github.com/btsmalrauxallonnes/generateur-de-playlist}.
+
+Vous trouverez dans le \vref{scriptSQL} page suivante la structure de la base de données au format SQL/92.
+
+L’organisation utilise principalement des outils libres et souhaite que ses développements soient libres eux aussi.
+
+\newpage
+\begin{lstlisting}[language=sql, caption={Script SQL de la structure de la base de données employée}, label={scriptSQL}]
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone="+00:00";
+
+/* !40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/* !40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/* !40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/* !40101 SET NAMES utf8 */;
+
+DROP TABLE IF EXISTS musique;
+CREATE TABLE IF NOT EXISTS musique (
+	id int (10) unsigned NOT NULL AUTO_INCREMENT,
+	titre varchar (255) COLLATE utf8_unicode_ci NOT NULL,
+	album varchar (255) COLLATE utf8_unicode_ci NOT NULL,
+	artiste varchar (255) COLLATE utf8_unicode_ci NOT NULL,
+	genre varchar (255) COLLATE utf8_unicode_ci NOT NULL,
+	sousgenre varchar (255) COLLATE utf8_unicode_ci NOT NULL,
+	duree int (11) NOT NULL,
+	format varchar (255) COLLATE utf8_unicode_ci NOT NULL,
+	polyphonie tinyint (4) NOT NULL DEFAULT 2,
+	chemin varchar (255) COLLATE utf8_unicode_ci NOT NULL,
+PRIMARY KEY (id)
+) ENGINE = MyISAM DEFAULT CHARSET = utf8 COLLATE = utf8_unicode_ci AUTO_INCREMENT=1403;
+\end{lstlisting}
+
+\vfill
+Document rédigé avec \LaTeX{}.
+\end{document}
