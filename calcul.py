@@ -3,7 +3,7 @@
 #Import modules Projet
 from globalConfig import ARGUMENTS_CLI
 
-## Calcul de la somme des pourcentage pour tous les arguments
+## Calcul de la somme des pourcentages pour tous les arguments
 #  @param listeArgumentsCLI : Namespace
 #  @return somme_pourcent : Int
 def getSommePourcent(listeArgumentsCLI):
