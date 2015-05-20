@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 
 """Ce module définie la ligne de commande"""
+##
+# \author Grégory DAVID
+# \author https://github.com/btsmalrauxallonnes/generateur-de-playlist
+# \copyright GNU Public License.
+#
+#
+#
 
 #Import modules Python
 import argparse
