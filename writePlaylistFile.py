@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-'''Ecriture du fichier de playlist au format M3U'''
+## Ecriture du fichier de playlist au format M3U
+#  @param listeArgumentsCLI : Namespace
+#  @param playlist : List
 def writeM3U(listeArgumentsCLI, playlist):
     playlistFileName = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist
     playlistFile = open(playlistFileName, 'w')
@@ -10,7 +12,10 @@ def writeM3U(listeArgumentsCLI, playlist):
         playlistFile.write(musique[4] + "\n\n")
     playlistFile.close()
 
-'''Ecriture du fichier de playlist au format XSPF'''
+
+## Ecriture du fichier de playlist au format XSPF
+#  @param listeArgumentsCLI : Namespace
+#  @param playlist : List
 def writeXSPF(listeArgumentsCLI, playlist):
     playlistFileName = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist
     playlistFile = open(playlistFileName, 'w')
@@ -28,7 +33,10 @@ def writeXSPF(listeArgumentsCLI, playlist):
     playlistFile.write("\t</trackList>\n</playlist>")
     playlistFile.close()
 
-'''Ecriture du fichier de playlist au format PLS'''
+
+## Ecriture du fichier de playlist au format MPLS3U
+#  @param listeArgumentsCLI : Namespace
+#  @param playlist : List
 def writePLS(listeArgumentsCLI, playlist):
     i=1
     playlistFileName = listeArgumentsCLI.nom_playlist +"."+ listeArgumentsCLI.type_playlist
