@@ -4,7 +4,8 @@
 import logging
 import calcul
 
-'''Vérification de la somme des pourcentages'''    
+##Vérification de la somme des pourcentages
+# @param listeArgumentsCLI : Namespace 
 def checkSum(listeArgumentsCLI):
     if 0 < calcul.getSommePourcent(listeArgumentsCLI) <= 100:
         calcul.convertToMinute(listeArgumentsCLI)
