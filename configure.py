@@ -12,7 +12,7 @@ import sys
 from configuration import writeConfig
 from color import Red, Redbold, Bold
 
-## Demmande la saisie du mot de passe de la base de données
+## Demande la saisie du mot de passe de la base de données
 #  @return pass_bdd : String
 def saisiePassword():
     while True:
