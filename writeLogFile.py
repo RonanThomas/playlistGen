@@ -18,7 +18,7 @@ def writeLogs(listeArgumentsCLI, playlist, somme_duree):
     logging.info("Pourcentage manquant : " + str((((listeArgumentsCLI.duree_playlist * 60)-somme_duree)/(listeArgumentsCLI.duree_playlist * 60))*100)[:5] + "%\n\n")
     
 
-## Convertie en heure/minutes/secondes un durée en minutes
+## Convertie en heure/minutes/secondes une durée en secondes
 #  @param duree : Int
 def convertToHours(duree):
     jours = 0
