@@ -91,7 +91,8 @@ def completePlaylist(listeArgumentsCLI):
 
 
 ## Appel de la fonction d'écriture du fichir de playlist
-#  @param listeArgumentsCLI : Namespace, playlist : List
+#  @param listeArgumentsCLI : Namespace
+#  @param playlist : List
 def writeFile(listeArgumentsCLI, playlist):
     if(listeArgumentsCLI.type_playlist == 'm3u'):
         writeM3U(listeArgumentsCLI, playlist)
