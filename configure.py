@@ -24,14 +24,24 @@ def saisiePassword():
             Red("/!\ Les mots de passe sont différents /!\\")
     return pass_bdd
 
+## Parser de la ligne de commande
 argsParser = argparse.ArgumentParser()
-login_bdd = pass_bdd = domain_bdd = port_bdd = None
+## Déclaration de l'dentifiant
+login_bdd = None
+## Déclaration du mot de passe
+pass_bdd = None
+## Déclaration de l'hôte
+domain_bdd = None
+## Déclaration du port
+port_bdd = None
+## Chemin du fichier de configuration
 configFileName = ".playlistGen.conf"
 
 argsParser.add_argument("-l", "--login", help="Modification du LOGGIN")
 argsParser.add_argument("-d", "--domain", help="Modification du DOMAIN")
 argsParser.add_argument("-p", "--port", help="Modification du PORT")
 
+## Arguments de la ligne de commande
 listeArgumentsCLI = argsParser.parse_args()
     
 Redbold("Configuration de playlistGen...")
@@ -40,18 +50,23 @@ if not (listeArgumentsCLI.login is None and listeArgumentsCLI.domain == None and
     configFile = open(".playlistGen.conf", 'r')
     for ligne in configFile:
         if(ligne.split('=')[0] == 'LOGIN_BDD'):
+            ## Identifiant issu du fichier de configuration
             login_bdd = ligne.split('=')[1][:-1]
         if(ligne.split('=')[0] == 'PASS_BDD'):
+            ## Mot de passe issu du fichier de configuration
             pass_bdd = ligne.split('=')[1][:-1]
         if(ligne.split('=')[0] == 'DOMAIN_BDD'):
+            ## Hôte issu du fichier de configuration
             domain_bdd = ligne.split('=')[1][:-1]
         if(ligne.split('=')[0] == 'PORT_BDD'):
+            ## Port issu du fichier de configuration
             port_bdd = ligne.split('=')[1][:-1]
     
     if(login_bdd is None or pass_bdd is None or domain_bdd is None or port_bdd is None):
         Redbold("/!\ Le fichier de configuration n'est pas complet. Executez 'configure.py'. /!\\")
         sys.exit()
     
+## Fichier de configuration
 configFile = open(configFileName, 'w')
 writeConfig.writeHead(configFile)
 
