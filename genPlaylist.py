@@ -13,7 +13,9 @@ from color import Red, Redbold, Bold
 
 playlist = []
 
-'''Téléchargement des données de la base de données'''
+## Téléchargement des données de la base de données
+#  @param listeArgumentsCLI : Namespace
+#  @return listeArgumentsCLI : Namespace
 def downloadData(listeArgumentsCLI):
     global resultat
     for attribut in ARGUMENTS_CLI:
@@ -46,7 +48,9 @@ def downloadData(listeArgumentsCLI):
                         somme_duree -= ligne[5]
 
 
-'''Génération de la liste de playlist'''
+## Génération de la liste de playlist
+#  @param listeArgumentsCLI : Namespace
+#  @return completePlaylist(listeArgumentsCLI) : Int
 def genPlaylist(listeArgumentsCLI):
     i = 0
     for attribut in ARGUMENTS_CLI:
@@ -60,7 +64,9 @@ def genPlaylist(listeArgumentsCLI):
     if(calcul.getSommePourcent(listeArgumentsCLI) != 100):
         return completePlaylist(listeArgumentsCLI)
     
-
+## Completion de la playlist par des titres aléatoires
+#  @param listeArgumentsCLI : Namespace
+#  @return somme_duree : Int
 def completePlaylist(listeArgumentsCLI):
     somme_duree = 0
     for musique in playlist:
@@ -84,7 +90,8 @@ def completePlaylist(listeArgumentsCLI):
     return somme_duree
 
 
-'''Appel de la fonction d'écriture du fichir de playlist'''
+## Appel de la fonction d'écriture du fichir de playlist
+#  @param listeArgumentsCLI : Namespace, playlist : List
 def writeFile(listeArgumentsCLI, playlist):
     if(listeArgumentsCLI.type_playlist == 'm3u'):
         writeM3U(listeArgumentsCLI, playlist)
