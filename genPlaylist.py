@@ -28,6 +28,8 @@ def downloadData(listeArgumentsCLI):
                     selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.sousgenre == argument[0])
                 if(attribut == 'artiste'):
                     selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.artiste == argument[0])
+                if(attribut == 'artisteRegex'):
+                    selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.artiste == argument[0])
                 if(attribut == 'album'):
                     selection_morceaux = sqlalchemy.select([tableMorceaux]).where(tableMorceaux.c.album == argument[0])
                 if(attribut == 'titre'):

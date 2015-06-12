@@ -36,4 +36,4 @@ for ligne in confFile:
             PORT_BDD = ligne.split("=")[1][:-1]
 
 
-ARGUMENTS_CLI = ['genre', 'sousgenre', 'artiste', 'album', 'titre']
+ARGUMENTS_CLI = ['genre', 'sousgenre', 'artiste', 'artisteRegex', 'album', 'titre']
